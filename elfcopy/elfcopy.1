@@ -23,12 +23,11 @@
 .\"
 .\" $Id$
 .\"
-.Dd January 29, 2016
+.Dd January 15, 2016
 .Os
 .Dt ELFCOPY 1
 .Sh NAME
-.Nm elfcopy ,
-.Nm objcopy
+.Nm elfcopy
 .Nd copy and translate object files
 .Sh SYNOPSIS
 .Nm
@@ -86,7 +85,7 @@
 .Sh DESCRIPTION
 The
 .Nm
-utility copies the content of the binary object named by argument
+utility copies the content of the ELF object named by argument
 .Ar infile
 to that named by argument
 .Ar outfile ,
@@ -338,11 +337,6 @@ Do not copy symbols that are not needed for relocation processing.
 .Xr elftc_bfd_find_target 3 ,
 .Xr ar 5 ,
 .Xr elf 5
-.Sh COMPATIBILITY
-The
-.Nm
-utility is expected to be option compatible with GNU
-.Nm objcopy .
 .Sh HISTORY
 .Nm
 has been implemented by

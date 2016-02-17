@@ -27,15 +27,13 @@ LDADD+=	-lpe
 .endif
 
 MAN=	elfcopy.1 mcs.1 strip.1
-MLINKS=	elfcopy.1 objcopy.1
 
 NO_SHARED?=	yes
 
-LINKS=	${BINDIR}/elfcopy ${BINDIR}/mcs		\
-	${BINDIR}/elfcopy ${BINDIR}/objcopy 	\
-	${BINDIR}/elfcopy ${BINDIR}/strip
+LINKS=	${BINDIR}/elfcopy ${BINDIR}/strip 	\
+	${BINDIR}/elfcopy ${BINDIR}/mcs
 
-EXTRA_TARGETS=	mcs strip objcopy
+EXTRA_TARGETS=	strip mcs
 
 CLEANFILES+=	${EXTRA_TARGETS}
 
