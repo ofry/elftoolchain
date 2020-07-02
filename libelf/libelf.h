@@ -31,6 +31,11 @@
 
 #include <sys/types.h>
 
+#if (defined _WIN32 && ! defined __CYGWIN__)
+typedef int gid_t;
+typedef int uid_t;
+#endif
+
 #include <elfdefinitions.h>
 
 /* Library private data structures */
