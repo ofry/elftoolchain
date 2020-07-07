@@ -323,6 +323,10 @@ struct name {							\
 #endif	/* __GNUC__ */
 #endif
 
+#ifndef ELFTC_VCSID
+#define ELFTC_VCSID(ID) /* nothing */
+#endif
+
 #endif	/* ELFTC_VCSID */
 
 /*
