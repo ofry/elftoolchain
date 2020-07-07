@@ -163,6 +163,12 @@
 
 #endif
 
+#if (defined _WIN32 && ! defined __CYGWIN__)
+#define LIBELF_ARCH      EM_386
+#define LIBELF_BYTEORDER ELFDATA2LSB
+#define LIBELF_CLASS     ELFCLASS32
+#endif
+
 /*
  * GNU & Linux compatibility.
  *
