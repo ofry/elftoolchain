@@ -24,7 +24,11 @@
  * SUCH DAMAGE.
  */
 
+#if !(defined _WIN32 && ! defined __CYGWIN__)
 #include <ar.h>
+#else
+#include "windows-mingw/ar.h"
+#endif
 #include <libelf.h>
 
 #include "_libelf.h"
