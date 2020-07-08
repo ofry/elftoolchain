@@ -32,6 +32,7 @@
 #if !(defined _WIN32 && ! defined __CYGWIN__)
 #include <sys/queue.h>
 #else
+#include <windows.h>
 #include "windows-mingw/sys_queue.h"
 #endif
 
