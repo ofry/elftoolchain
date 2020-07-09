@@ -34,7 +34,11 @@
  * handling code.
  */
 
+#if !(defined _WIN32 && ! defined __CYGWIN__)
 #include <ar.h>
+#else
+#include "windows-mingw/ar.h"
+#endif
 
 #define	LIBELF_AR_BSD_EXTENDED_NAME_PREFIX	"#1/"
 #define	LIBELF_AR_BSD_SYMTAB_NAME		"__.SYMDEF"
