@@ -143,8 +143,12 @@ _libelf_open_object(int fd, Elf_Cmd c, int reporterror)
 	/*
 	 * Reject unsupported file types.
 	 */
+#if defined(S_ISSOCK)
 	if (!S_ISREG(mode) && !S_ISCHR(mode) && !S_ISFIFO(mode) &&
 	    !S_ISSOCK(mode)) {
+#else
+    if (!S_ISREG(mode) && !S_ISCHR(mode) && !S_ISFIFO(mode)) {
+#endif
 		LIBELF_SET_ERROR(ARGUMENT, 0);
 		return (NULL);
 	}

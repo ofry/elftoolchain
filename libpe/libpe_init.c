@@ -48,8 +48,12 @@ libpe_open_object(PE *pe)
 	pe->pe_fsize = (size_t) sb.st_size;
 
 	/* Reject unsupported file types. */
+#if defined(S_ISSOCK)
 	if (!S_ISREG(mode) && !S_ISCHR(mode) && !S_ISFIFO(mode) &&
 	    !S_ISSOCK(mode)) {
+#else
+    if (!S_ISREG(mode) && !S_ISCHR(mode) && !S_ISFIFO(mode)) {
+#endif
 		errno = EINVAL;
 		return (-1);
 	}
