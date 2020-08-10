@@ -35,7 +35,11 @@
  * #include	"xlate_template.c"
  */
 
+#if !(defined _WIN32 && ! defined __CYGWIN__)
 #include <sys/param.h>
+#else
+#include "windows-mingw/sys_param.h"
+#endif
 
 #define	__XCONCAT(x,y)	__CONCAT(x,y)
 #ifndef	__XSTRING

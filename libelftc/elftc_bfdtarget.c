@@ -24,7 +24,11 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#if !(defined _WIN32 && ! defined __CYGWIN__)
 #include <sys/param.h>
+#else
+#include "windows-mingw/sys_param.h"
+#endif
 #include <string.h>
 #include <libelftc.h>
 

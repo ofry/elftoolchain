@@ -451,7 +451,11 @@ extern const char *__progname;
 
 #if defined(__NetBSD__)
 
+#if !(defined _WIN32 && ! defined __CYGWIN__)
 #include <sys/param.h>
+#else
+#include "windows-mingw/sys_param.h"
+#endif
 #include <sys/endian.h>
 
 #define	ELFTC_BYTE_ORDER			_BYTE_ORDER
@@ -470,7 +474,11 @@ extern const char *__progname;
 
 #if defined(__OpenBSD__)
 
+#if !(defined _WIN32 && ! defined __CYGWIN__)
 #include <sys/param.h>
+#else
+#include "windows-mingw/sys_param.h"
+#endif
 #include <sys/endian.h>
 
 #define	ELFTC_BYTE_ORDER			_BYTE_ORDER

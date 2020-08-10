@@ -27,7 +27,11 @@
  */
 
 #include <sys/mman.h>
+#if !(defined _WIN32 && ! defined __CYGWIN__)
 #include <sys/param.h>
+#else
+#include "windows-mingw/sys_param.h"
+#endif
 #include <sys/queue.h>
 #include <sys/stat.h>
 #include <ar.h>
