@@ -35,7 +35,11 @@
 #else
 #include "windows-mingw/sys_param.h"
 #endif
+#if !(defined _WIN32 && ! defined __CYGWIN__)
 #include <sys/queue.h>
+#else
+#include "windows-mingw/sys_queue.h"
+#endif
 #include <assert.h>
 #include <limits.h>
 #include <stdio.h>
