@@ -7,7 +7,7 @@
 .if !defined(OS_HOST)
 
 # Determine the host operating system flavor.
-OS_HOST != uname -s
+OS_HOST != uname -s | cut -d_ -f1
 
 # Bring in OS-specific Makefiles, if they exist
 .if exists(${TOP}/mk/os.${OS_HOST}.mk)

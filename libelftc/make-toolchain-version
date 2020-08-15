@@ -8,7 +8,7 @@
 #
 # Defaults.
 #
-buildhost=`uname -s`
+buildhost=`uname -s | cut -d_ -f1`
 elftcname="elftoolchain"
 options="e:h:o:pr:t:"
 top=""
