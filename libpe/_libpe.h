@@ -30,7 +30,11 @@
 #define	__LIBPE_H_
 
 #include <sys/types.h>
+#if !(defined _WIN32 && ! defined __CYGWIN__)
 #include <sys/queue.h>
+#else
+#include "windows-mingw/sys_queue.h"
+#endif
 
 #include "libpe.h"
 
