@@ -493,4 +493,8 @@ extern const char *__progname;
 
 #endif	/* __OpenBSD__ */
 
+#if (defined _WIN32 && ! defined __CYGWIN__)
+#include "windows-mingw/endian.h"
+#endif
+
 #endif	/* _ELFTC_H */
