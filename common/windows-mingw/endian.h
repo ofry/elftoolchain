@@ -10,7 +10,7 @@ details. */
 #define _ENDIAN_H_
 
 #include <stdint.h>
-#include <sys/config.h>
+//#include <sys/config.h>
 #include "machine_endian.h"
 
 /*#ifdef  __USE_BSD*/

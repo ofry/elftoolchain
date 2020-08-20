@@ -2,8 +2,8 @@
 #define	__MACHINE_ENDIAN_H__
 
 #include <sys/cdefs.h>
-#include <sys/_types.h>
-#include <_ansi.h>
+//#include <sys/_types.h>
+#include "_ansi.h"
 
 #ifndef _BITS_ENDIAN_H_
 #define _BITS_ENDIAN_H_
