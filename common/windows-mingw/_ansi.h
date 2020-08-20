@@ -8,7 +8,7 @@
 #define	_ANSIDECL_H_
 
 #include "newlib.h"
-#include <sys/config.h>
+//#include <sys/config.h>
 
 /*  ISO C++.  */
 
@@ -21,11 +21,7 @@
 #define _BEGIN_STD_C extern "C" {
 #define _END_STD_C  }
 #endif
-#if __GNUC_PREREQ (3, 3)
 #define _NOTHROW __attribute__ ((__nothrow__))
-#else
-#define _NOTHROW throw()
-#endif
 #endif
 #else
 #define _BEGIN_STD_C
@@ -69,14 +65,9 @@
 #define _ELIDABLE_INLINE static __inline__
 #endif
 
-#if __GNUC_PREREQ (3, 1)
+
 #define _NOINLINE		__attribute__ ((__noinline__))
 #define _NOINLINE_STATIC	_NOINLINE static
-#else
-/* On non-GNU compilers and GCC prior to version 3.1 the compiler can't be
-   trusted not to inline if it is static. */
-#define _NOINLINE
-#define _NOINLINE_STATIC
-#endif
+
 
 #endif /* _ANSIDECL_H_ */

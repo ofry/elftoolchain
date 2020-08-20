@@ -28,18 +28,18 @@
 
 #define __machine_host_to_from_network_defined
 
-_ELIDABLE_INLINE __uint32_t __ntohl(__uint32_t);
-_ELIDABLE_INLINE __uint16_t __ntohs(__uint16_t);
+_ELIDABLE_INLINE uint32_t __ntohl(uint32_t);
+_ELIDABLE_INLINE uint16_t __ntohs(uint16_t);
 
-_ELIDABLE_INLINE __uint32_t
-__ntohl(__uint32_t _x)
+_ELIDABLE_INLINE uint32_t
+__ntohl(uint32_t _x)
 {
 __asm__("bswap %0" : "=r" (_x) : "0" (_x));
 return _x;
 }
 
-_ELIDABLE_INLINE __uint16_t
-__ntohs(__uint16_t _x)
+_ELIDABLE_INLINE uint16_t
+__ntohs(uint16_t _x)
 {
 __asm__("xchgb %b0,%h0"		/* swap bytes		*/
 : "=Q" (_x)
@@ -70,18 +70,18 @@ return _x;
 #define	__bswap32(_x)	__builtin_bswap32(_x)
 #define	__bswap64(_x)	__builtin_bswap64(_x)
 #else /* __GNUC__ */
-static __inline __uint16_t
-__bswap16(__uint16_t _x)
+static __inline uint16_t
+__bswap16(uint16_t _x)
 {
 
-    return ((__uint16_t)((_x >> 8) | ((_x << 8) & 0xff00)));
+    return ((uint16_t)((_x >> 8) | ((_x << 8) & 0xff00)));
 }
 
-static __inline __uint32_t
-__bswap32(__uint32_t _x)
+static __inline uint32_t
+__bswap32(uint32_t _x)
 {
 
-    return ((__uint32_t)((_x >> 24) | ((_x >> 8) & 0xff00) |
+    return ((uint32_t)((_x >> 24) | ((_x >> 8) & 0xff00) |
                          ((_x << 8) & 0xff0000) | ((_x << 24) & 0xff000000)));
 }
 
@@ -104,10 +104,10 @@ __bswap64(__uint64_t _x)
 #define	__ntohl(_x)	__bswap32(_x)
 #define	__ntohs(_x)	__bswap16(_x)
 #else
-#define	__htonl(_x)	((__uint32_t)(_x))
-#define	__htons(_x)	((__uint16_t)(_x))
-#define	__ntohl(_x)	((__uint32_t)(_x))
-#define	__ntohs(_x)	((__uint16_t)(_x))
+#define	__htonl(_x)	((uint32_t)(_x))
+#define	__htons(_x)	((uint16_t)(_x))
+#define	__ntohl(_x)	((uint32_t)(_x))
+#define	__ntohs(_x)	((uint16_t)(_x))
 #endif
 #endif /* __machine_host_to_from_network_defined */
 
