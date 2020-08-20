@@ -374,6 +374,14 @@ extern const char *__progname;
  ** Per-OS configuration.
  **/
 
+#if defined _WIN32 && ! defined __CYGWIN__
+#include "windows-mingw/endian.h"
+
+#define	ELFTC_BYTE_ORDER			__BYTE_ORDER
+#define	ELFTC_BYTE_ORDER_LITTLE_ENDIAN		__LITTLE_ENDIAN
+#define	ELFTC_BYTE_ORDER_BIG_ENDIAN		__BIG_ENDIAN
+#endif
+
 #if defined(__APPLE__)
 
 #include <libkern/OSByteOrder.h>
@@ -492,9 +500,5 @@ extern const char *__progname;
 #define	roundup2	roundup
 
 #endif	/* __OpenBSD__ */
-
-#if (defined _WIN32 && ! defined __CYGWIN__)
-#include "windows-mingw/endian.h"
-#endif
 
 #endif	/* _ELFTC_H */
