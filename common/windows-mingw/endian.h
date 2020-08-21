@@ -34,7 +34,7 @@ details. */
 # define __LONG_LONG_PAIR(HI, LO) HI, LO
 #endif
 
-#if __BSD_VISIBLE
+//#if __BSD_VISIBLE
 
 #include "bits_byteswap.h"
 
@@ -78,7 +78,7 @@ details. */
 
 #endif /*__BYTE_ORDER == __BIG_ENDIAN*/
 
-#endif /*__BSD_VISIBLE*/
+//#endif /*__BSD_VISIBLE*/
 
 /* Alignment-agnostic encode/decode bytestream to/from little/big endian. */
 
